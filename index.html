@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sepatu Cibaduyut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png" />
+    <link rel="manifest" href="./images/favicon_io/site.webmanifest" />
+  </head>
+
+  <body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="border-b shadow-sm">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="./">
+          <img
+            src="images/logo/logo-sepatu-cibaduyut.png"
+            alt="logo sepatu cibaduyut"
+            srcset=""
+            class="w-16"
+          />
+        </a>
+        <nav class="md:flex gap-4">
+          <!--Hamburger-->
+          <button
+            id="menuBtn"
+            class="flex md:hidden openSidebarBtn hamburger-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="black"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu"
+            >
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
+              <path d="M4 6h16" />
+            </svg>
+          </button>
+          <div class="hidden md:flex gap-4 text-sm items-center">
+            <a href="./products.html" class="hover:text-red-500">Shoes</a>
+            <a href="./favorite.html" class="hover:text-red-500">Favorites</a>
+            <a href="./contact.html" class="hover:text-red-500">Contact</a>
+            <a id="openCartBtn" class="hover:text-red-500 cursor-pointer"
+              >My Cart</a
+            >
+            <a
+              href="https://wa.me/6282334907089"
+              target="_blank"
+              class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 flex gap-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+                />
+              </svg>
+              Contact Me
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar Nav -->
+    <div
+      id="navSidebar"
+      class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-gray-500"
+      >
+        <h2 class="text-xl text-[#000] font-bold tracking-wide">Menu</h2>
+        <button
+          id="closeNav"
+          class="text-2xl text-[#000] leading-none focus:outline-none"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="px-6 py-4 space-y-4">
+        <a
+          href="./products.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Shoes</a
+        >
+        <hr class="border-gray-500" />
+        <a
+          href="./favorite.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Favorites</a
+        >
+        <hr class="border-gray-500" />
+        <a
+          href="./contact.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Contact</a
+        >
+        <hr class="border-gray-500" />
+      </div>
+    </div>
+
+    <!--Sidebar Cart-->
+    <section>
+      <div
+        id="cartSidebar"
+        class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <!-- Header -->
+        <div class="flex justify-between items-center p-4 border-b">
+          <h3 class="text-lg font-semibold text-gray-800">Shopping Cart</h3>
+          <button class="close-cart text-2xl text-gray-500 hover:text-red-500">
+            &times;
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div
+          id="cartItems"
+          class="p-4 space-y-4 overflow-y-auto h-[calc(100%-160px)]"
+        >
+          <!-- Cart items will be rendered here -->
+        </div>
+
+        <!-- Footer -->
+        <div class="p-4 border-t">
+          <button
+            id="checkoutBtn"
+            class="w-full bg-gray-900 text-white py-2 rounded hover:bg-gray-800 transition font-semibold"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="bg-gray-100 py-10 px-4 relative overflow-hidden">
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center gap-8 relative z-10"
+      >
+        <!-- Text -->
+        <div
+          class="text-center md:text-left w-full justify-items-center md:justify-items-start md:w-1/2"
+        >
+          <h2 class="text-4xl font-bold mb-4">
+            Melangkah dengan percaya diri <br />
+            <span class="text-red-500">bersama sepatu lokal berkualitas.</span>
+          </h2>
+          <p class="mb-4 text-sm">
+            SepatuCibaduyut.com Menjadi wadah para pengrajin sepatu Cibaduyut
+            untuk mengenalkan keahlian dan produksinya kepada dunia.
+          </p>
+          <button
+            class="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 text-xl font-semibold"
+          >
+            <a href="./products.html" class="flex gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                />
+              </svg>
+              Buy Now
+            </a>
+          </button>
+        </div>
+
+        <!-- Image Wrapper -->
+        <div class="relative w-full md:w-1/2">
+          <!-- Blob Hero Background -->
+          <img
+            src="./images/Blob Hero.png"
+            alt=""
+            class="absolute inset-0 w-9/12 h-9/12 top-12 object-contain md:object-cover -z-10"
+          />
+          <!-- SepatuPria Image -->
+          <img
+            src="images/SepatuPria.png"
+            alt="Formal Shoes"
+            class="w-full relative z-10"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-10 bg-white">
+      <div
+        class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-sm"
+      >
+        <div class="flex flex-col items-center">
+          <img src="./images/logo/ship.png" alt="" srcset="" class="w-8 mb-2" />
+          <strong class="uppercase mb-2">Free Delivery</strong>
+          <p>Gratis Ongkir ke Seluruh Indonesia!</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="./images/logo/price.png"
+            alt=""
+            srcset=""
+            class="w-8 mb-2"
+          />
+          <strong class="uppercase mb-2">Money Back Guarantee</strong>
+          <p>Belanja Aman dengan Jaminan Uang Kembali.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="./images/logo/cp.png" alt="" srcset="" class="w-8 mb-2" />
+          <strong class="uppercase mb-2">Best Online Support</strong>
+          <p>Dukungan Online Terbaik, Siap 24/7.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="./images/logo/box.png" alt="" srcset="" class="w-8 mb-2" />
+          <strong class="uppercase mb-2">Special Gift Card</strong>
+          <p>Hadiah Spesial untuk Orang Tersayang!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="bg-gray-50 py-10 px-4">
+      <div class="container mx-auto grid md:grid-cols-2 gap-6">
+        <div
+          class="relative bg-[#370506] shadow rounded text-start text-white flex overflow-hidden flex-col md:flex-row items-center"
+        >
+          <div
+            class="absolute z-0 w-[300px] h-[300px] rounded-full bg-[#5c1f1f] -top-24 md:-top-12 md:-left-16"
+          ></div>
+          <img
+            src="./images/Black Formal bg.png"
+            alt=""
+            class="w-56 h-auto relative z-10"
+          />
+          <div class="p-6 md:p-12 relative z-10 text-center md:text-left">
+            <h3 class="font-semibold mb-2">Beli Sepatu Terkini</h3>
+            <p class="text-sm mb-6 md:mb-2">
+              Desain kekinian, kenyamanan maksimal. Saatnya upgrade sepatu lokal
+              berkualitas.
+            </p>
+            <button
+              class="bg-[#997749] text-white px-6 py-2 rounded hover:bg-[#a88452]"
+            >
+              Order Now
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative bg-[#997749] shadow rounded text-start text-white flex overflow-hidden flex-col md:flex-row items-center"
+        >
+          <div
+            class="absolute z-0 w-[300px] h-[300px] rounded-full bg-[#a6804f] -top-24 md:-top-12 md:-left-16"
+          ></div>
+          <img
+            src="./images/brown shoes bg.png"
+            alt=""
+            class="w-56 h-auto relative z-10"
+          />
+          <div class="p-6 md:p-12 relative z-10 text-center md:text-left">
+            <h3 class="font-semibold mb-2">Buat Brandmu Sendiri</h3>
+            <p class="text-sm mb-6 md:mb-2">
+              Buat sepatu dengan label brandmu sendiri. Bebas bahan dan desain.
+            </p>
+            <button
+              class="bg-[#370A0D] text-white px-6 py-2 rounded hover:bg-[#461e20]"
+            >
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="py-10 px-4">
+      <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-center">Trending Products</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div class="text-center">
+            <img
+              src="images/products/Diamond Brogue.jpg"
+              alt="Shoe"
+              class="mx-auto mb-2"
+            />
+            <h3 class="text-sm font-semibold">Diamond Brogue</h3>
+            <p class="text-red-500 text-sm">Rp 300.000</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="images/products/brown shoes.jpg"
+              alt="Shoe"
+              class="mx-auto mb-2"
+            />
+            <h3 class="text-sm font-semibold">Classic Oxford</h3>
+            <p class="text-red-500 text-sm">Rp 290.000</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="images/products/Black Formal.jpg"
+              alt="Shoe"
+              class="mx-auto mb-2"
+            />
+            <h3 class="text-sm font-semibold">Black Formal</h3>
+            <p class="text-red-500 text-sm">Rp 270.000</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="images/products/Derby Brown.jpg"
+              alt="Shoe"
+              class="mx-auto mb-2"
+            />
+            <h3 class="text-sm font-semibold">Derby Brown</h3>
+            <p class="text-red-500 text-sm">Rp 400.000</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="images/products/Premium Monk.jpg"
+              alt="Shoe"
+              class="mx-auto mb-2"
+            />
+            <h3 class="text-sm font-semibold">Premium Monk</h3>
+            <p class="text-red-500 text-sm">Rp 320.000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="bg-gray-100 py-10 px-4">
+      <div class="container mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">About Us</h2>
+        <p class="max-w-2xl mx-auto text-sm">
+          Cibaduyut telah lama dikenal sebagai pusat industri sepatu di
+          Indonesia. Kawasan ini menjadi ikon kreativitas dan keterampilan
+          pengrajin lokal yang menghasilkan produk sepatu berkualitas tinggi.
+          Pernah sangat berjaya diera 90-an, Sepatu cibaduyut saat ini kembali
+          menemukan identitasnya dan mulai kembali dicari juga lebih dikenal
+          luas lewat perkembangan tekhnologi seperti internet dan media sosial.
+          SepatuCibaduyut.com kemudian didirikan untuk menjadi wadah para
+          pengrajin sepatu Cibaduyut untuk mengenalkan keahlian dan produksinya
+          kepada dunia.
+        </p>
+      </div>
+    </section>
+
+    <!--Videos-->
+    <section
+      class="bg-[#997749] py-16 px-6 md:px-12 rounded-md mx-4 md:mx-12 mt-12 shadow-lg"
+    >
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Sejarah Sentra Industri Sepatu Cibaduyut
+        </h2>
+        <p class="text-sm md:text-base text-white max-w-2xl mx-auto mb-8">
+          Dari Cibaduyut ke seluruh Nusantara—jejak sepatu berkualitas dari dulu
+          hingga kini!
+        </p>
+        <div
+          class="w-full max-w-2xl border-2 p-4 border-white mx-auto aspect-video rounded-lg overflow-hidden shadow-md"
+        >
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/b_g2xg4t9k8?si=crgJdoER-SUt-hD-"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-white flex flex-col-reverse md:flex-row items-center justify-center gap-12 relative overflow-hidden"
+    >
+      <!-- Kiri: Gambar + Background Blob -->
+      <div class="w-full md:w-1/2 flex justify-center relative z-10">
+        <!-- Blob sebagai background -->
+        <img
+          src="./images/Blob owner.png"
+          alt="Blob Background"
+          class="absolute -bottom-12 left-0 w-full h-full object-contain z-0 pointer-events-none"
+        />
+
+        <!-- Gambar Owner -->
+        <img
+          src="./images/owner sepatu cibaduyut.png"
+          alt="Owner SepatuCibaduyut.com"
+          class="w-[300px] md:w-[400px] object-cover relative z-10"
+        />
+      </div>
+
+      <!-- Konten Owner -->
+      <div class="w-full md:w-1/2 text-left px-4 md:px-12 py-16 relative z-10">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
+          Waktunya Cibaduyut
+          <span class="text-red-500 font-bold">Kembali Mendunia!</span>
+        </h2>
+        <p class="mb-6">
+          Strategi kami dalam membangun sepatucibaduyut.com menjadi platform
+          pengerajin sepatu terbesar di Indonesia.
+        </p>
+
+        <ul class="space-y-5 text-gray-700">
+          <li class="flex items-start gap-3">
+            <div class="w-4 h-4 mt-1 rounded-full bg-red-500 shrink-0"></div>
+            <div>
+              <p class="font-semibold">Meningkatkan standar mutu</p>
+              <p class="text-sm text-gray-500">
+                Menjaga kualitas dalam setiap proses produksi — dari bahan
+                pilihan hingga hasil akhir terbaik.
+              </p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-4 h-4 mt-1 rounded-full bg-red-500 shrink-0"></div>
+            <div>
+              <p class="font-semibold">
+                Membentuk komunitas pengerajin yang solid
+              </p>
+              <p class="text-sm text-gray-500">
+                Membangun ruang kolaboratif untuk para pengerajin lokal agar
+                saling mendukung, tumbuh, dan berkembang bersama.
+              </p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-4 h-4 mt-1 rounded-full bg-red-500 shrink-0"></div>
+            <div>
+              <p class="font-semibold">
+                Mengintegrasikan teknologi dan tradisi
+              </p>
+              <p class="text-sm text-gray-500">
+                Menggabungkan kearifan lokal dengan inovasi modern untuk
+                menciptakan produk yang otentik dan relevan dengan zaman.
+              </p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-4 h-4 mt-1 rounded-full bg-red-500 shrink-0"></div>
+            <div>
+              <p class="font-semibold">Menjalin kemitraan strategis</p>
+              <p class="text-sm text-gray-500">
+                Bekerja sama dengan berbagai pihak untuk memperluas jangkauan,
+                membuka peluang baru, dan memperkuat ekosistem industri.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <button
+          class="mt-8 px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-md font-semibold shadow-md transition"
+        >
+          Daftar Sekarang
+        </button>
+      </div>
+    </section>
+
+    <!--FAQ -->
+    <section
+      id="faq"
+      class="bg-[url('/assets/background-pattern.png')] bg-repeat-y py-16"
+    >
+      <div class="text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">FAQ</h2>
+        <p class="text-xl text-gray-600 mb-12">Ada pertanyaan untuk kami?</p>
+      </div>
+      <div class="max-w-3xl mx-auto px-6">
+        <!-- FAQ Item 1 -->
+        <div class="border-b border-black py-4">
+          <button
+            class="w-full flex justify-between items-center text-left"
+            onclick="toggleFaq(1)"
+          >
+            <p class="text-lg md:text-2xl font-medium leading-snug">
+              <span class="font-bold mr-4">01</span> Apakah ada minimal ordernya
+              ?
+            </p>
+            <span class="text-2xl">&#9660;</span>
+          </button>
+          <div
+            id="faq-1"
+            class="faq-content max-h-0 overflow-hidden transition-all duration-300"
+          >
+            <p class="pt-4 text-gray-700">
+              Ya ada, Minimal order adalah 40 Pcs untuk satu model sepatu /
+              sandal
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="border-b border-black py-4">
+          <button
+            class="w-full flex justify-between items-center text-left"
+            onclick="toggleFaq(2)"
+          >
+            <p class="text-lg md:text-2xl font-medium leading-snug">
+              <span class="font-bold mr-4">02</span> Apakah ukurannya bisa
+              beda-beda dari 40 Pcs itu ?
+            </p>
+            <span class="text-2xl">&#9660;</span>
+          </button>
+          <div
+            id="faq-2"
+            class="faq-content max-h-0 overflow-hidden transition-all duration-300"
+          >
+            <p class="pt-4 text-gray-700">Ya bisa, ukurannya bisa request</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="border-b border-black py-4">
+          <button
+            class="w-full flex justify-between items-center text-left"
+            onclick="toggleFaq(3)"
+          >
+            <p class="text-lg md:text-2xl font-medium leading-snug">
+              <span class="font-bold mr-4">03</span> Apakah bisa memilih bahan
+              dan model sendiri ?
+            </p>
+            <span class="text-2xl">&#9660;</span>
+          </button>
+          <div
+            id="faq-3"
+            class="faq-content max-h-0 overflow-hidden transition-all duration-300"
+          >
+            <p class="pt-4 text-gray-700">
+              Sangat bisa, silahkan explorasikan ide mu, kami bantu wujudkan
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="border-b border-black py-4">
+          <button
+            class="w-full flex justify-between items-center text-left"
+            onclick="toggleFaq(4)"
+          >
+            <p class="text-lg md:text-2xl font-medium leading-snug">
+              <span class="font-bold mr-4">04</span> Apakah sudah dengan box /
+              dus sepatu ?
+            </p>
+            <span class="text-2xl">&#9660;</span>
+          </button>
+          <div
+            id="faq-4"
+            class="faq-content max-h-0 overflow-hidden transition-all duration-300"
+          >
+            <p class="pt-4 text-gray-700">
+              Ya sudah, kami berikan Box polos warna putih, dan jika ingin
+              request box bisa berdiskusi lebih lanjut
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-10">
+      <div
+        class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left"
+      >
+        <div
+          class="w-full flex justify-center md:justify-start text-center md:text-left"
+        >
+          <div>
+            <img
+              src="./images/logo/logo-sepatu-cibaduyut.png"
+              alt="Logo"
+              class="h-10 mb-4 mx-auto md:mx-0"
+            />
+            <p class="text-sm">
+              Jl. Cibaduyut<br />
+              Kel.Kebon Lega Kec.Bojongloa Kidul, Kota Bandung Jawa Barat
+            </p>
+            <a
+              href="#"
+              class="text-red-500 text-sm underline mt-2 inline-block"
+            >
+              Get direction ↗
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Customer Support</h4>
+          <p class="text-sm">
+            Email:
+            <a href="mailto:info@pash.id" class="text-red-500"
+              >info@sepatucibaduyut.id</a
+            >
+          </p>
+          <p class="text-sm">
+            Phone:<br /><a href="tel:+628112652151">+628112652151</a><br /><a
+              href="tel:+628112952151"
+              >+628112952151</a
+            >
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Useful Links</h4>
+          <ul class="text-sm space-y-1">
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Subscribe</h4>
+          <p class="text-sm mb-2">
+            Get early access to new arrivals and events!
+          </p>
+          <form class="flex">
+            <input
+              type="email"
+              placeholder="Your email"
+              class="w-full px-2 py-1 border rounded-l"
+            />
+            <button
+              type="submit"
+              class="bg-red-500 text-white px-4 py-1 rounded-r"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center text-sm py-4 border-t mt-6">
+        © 2025 Sepatu Cibaduyut. All Rights Reserved
+      </div>
+    </footer>
+
+    <script src="./javascript/sidebar.js"></script>
+    <script src="./javascript/cart.js"></script>
+    <script>
+      function toggleFaq(index) {
+        const content = document.getElementById(`faq-${index}`);
+        const isOpen = content.classList.contains("open");
+
+        document.querySelectorAll(".faq-content").forEach((el) => {
+          el.style.maxHeight = null;
+          el.classList.remove("open", "opacity-100");
+          el.classList.add("opacity-0");
+        });
+
+        if (!isOpen) {
+          content.classList.add("open");
+          content.classList.remove("opacity-0");
+          content.classList.add("opacity-100");
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      }
+    </script>
+  </body>
+</html>

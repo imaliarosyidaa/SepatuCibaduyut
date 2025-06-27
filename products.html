@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png" />
+    <link rel="manifest" href="./images/favicon_io/site.webmanifest" />
+  </head>
+
+  <body class="font-sans bg-white text-gray-900">
+    <!-- Header -->
+    <header class="border-b shadow-sm">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="./">
+          <img
+            src="images/logo/logo-sepatu-cibaduyut.png"
+            alt="logo sepatu cibaduyut"
+            srcset=""
+            class="w-16"
+          />
+        </a>
+
+        <nav class="md:flex gap-4">
+          <!--Hamburger-->
+          <button
+            id="menuBtn"
+            class="flex md:hidden openSidebarBtn hamburger-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="black"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu"
+            >
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
+              <path d="M4 6h16" />
+            </svg>
+          </button>
+          <div class="hidden md:flex gap-4 text-sm items-center">
+            <a href="./products.html" class="hover:text-red-500">Shoes</a>
+            <a href="./favorite.html" class="hover:text-red-500">Favorites</a>
+            <a href="./contact.html" class="hover:text-red-500">Contact</a>
+            <a id="openCartBtn" class="hover:text-red-500 cursor-pointer">My Cart</a>
+            <a
+              href="https://wa.me/6282334907089"
+              target="_blank"
+              class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 flex gap-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+                />
+              </svg>
+              Contact Me
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="relative bg-gray-100 h-64 flex items-center justify-center">
+      <div class="relative z-10 text-center">
+        <h1 class="text-4xl font-bold mb-2">Products</h1>
+        <p class="text-sm text-gray-600">
+          <a href="index.html" class="text-red-500 hover:underline">Home</a> /
+          Products
+        </p>
+      </div>
+    </div>
+
+    <!-- Sidebar Nav -->
+    <div
+      id="navSidebar"
+      class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-gray-500"
+      >
+        <h2 class="text-xl text-[#000] font-bold tracking-wide">Menu</h2>
+        <button
+          id="closeNav"
+          class="text-2xl text-[#000] leading-none focus:outline-none"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="px-6 py-4 space-y-4">
+        <a
+          href="./products.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Shoes</a
+        >
+        <hr class="border-gray-500" />
+        <a
+          href="./favorite.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Favorites</a
+        >
+        <hr class="border-gray-500" />
+        <a
+          href="./contact.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Contact</a
+        >
+        <hr class="border-gray-500" />
+      </div>
+    </div>
+
+    <!--Sidebar Cart-->
+    <section>
+      <div
+        id="cartSidebar"
+        class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <!-- Header -->
+        <div class="flex justify-between items-center p-4 border-b">
+          <h3 class="text-lg font-semibold text-gray-800">Shopping Cart</h3>
+          <button class="close-cart text-2xl text-gray-500 hover:text-red-500">
+            &times;
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div
+          id="cartItems"
+          class="p-4 space-y-4 overflow-y-auto h-[calc(100%-160px)]"
+        >
+          <!-- Cart items will be rendered here -->
+        </div>
+
+        <!-- Footer -->
+        <div class="p-4 border-t">
+          <button
+            id="checkoutBtn"
+            class="w-full bg-gray-900 text-white py-2 rounded hover:bg-gray-800 transition font-semibold"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dropdown Filter -->
+    <div
+      class="relative inline-block text-left w-full max-w-xs mx-auto md:mx-0 md:w-64 p-6"
+    >
+      <button
+        id="dropdownBtn"
+        class="inline-flex justify-between w-full px-4 py-2 bg-white border border-gray-300 shadow-sm rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
+        onclick="toggleDropdown()"
+      >
+        Filter Kategori
+        <svg
+          class="w-5 h-5 ml-2 -mr-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+
+      <div
+        id="dropdownMenu"
+        class="origin-top-right absolute z-30 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
+      >
+        <div class="py-2 px-4 text-sm text-gray-700 space-y-1">
+          <label class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="sneakers"
+              checked
+            />
+            Sneakers
+          </label>
+          <label class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="kulit casual"
+              checked
+            />
+            Kulit Casual
+          </label>
+          <label class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="pantofel pria"
+              checked
+            />
+            Pantofel Pria
+          </label>
+          <label class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="pantofel wanita"
+              checked
+            />
+            Pantofel Wanita
+          </label>
+          <label class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="sandal pria"
+              checked
+            />
+            Sandal Pria
+          </label>
+          <label class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              class="filter-checkbox"
+              value="sandal wanita"
+              checked
+            />
+            Sandal Wanita
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid Placeholder -->
+    <div
+      id="productGrid"
+      class="p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    >
+      <!-- Produk akan dirender dengan JS -->
+    </div>
+
+    <!-- Sidebar Cart -->
+    <div
+      id="cartSidebar"
+      class="fixed top-0 right-0 w-80 bg-white h-full shadow-lg transform translate-x-full transition-transform duration-300 z-50"
+    >
+      <div class="p-4 flex justify-between items-center border-b">
+        <h3 class="font-bold text-lg">Shopping Cart</h3>
+        <button class="close-cart text-xl">&times;</button>
+      </div>
+      <div class="p-4" id="cartItems"></div>
+      <div class="p-4 border-t">
+        <button
+          id="checkoutBtn"
+          class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-10">
+      <div
+        class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left"
+      >
+        <div
+          class="w-full flex justify-center md:justify-start text-center md:text-left"
+        >
+          <div>
+            <img
+              src="./images/logo/logo-sepatu-cibaduyut.png"
+              alt="Logo"
+              class="h-10 mb-4 mx-auto md:mx-0"
+            />
+            <p class="text-sm">
+              Jl. Cibaduyut<br />
+              Kel.Kebon Lega Kec.Bojongloa Kidul, Kota Bandung Jawa Barat
+            </p>
+            <a
+              href="#"
+              class="text-red-500 text-sm underline mt-2 inline-block"
+            >
+              Get direction ↗
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Customer Support</h4>
+          <p class="text-sm">
+            Email:
+            <a href="mailto:info@pash.id" class="text-red-500"
+              >info@sepatucibaduyut.id</a
+            >
+          </p>
+          <p class="text-sm">
+            Phone:<br /><a href="tel:+628112652151">+628112652151</a><br /><a
+              href="tel:+628112952151"
+              >+628112952151</a
+            >
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Useful Links</h4>
+          <ul class="text-sm space-y-1">
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Subscribe</h4>
+          <p class="text-sm mb-2">
+            Get early access to new arrivals and events!
+          </p>
+          <form class="flex">
+            <input
+              type="email"
+              placeholder="Your email"
+              class="w-full px-2 py-1 border rounded-l"
+            />
+            <button
+              type="submit"
+              class="bg-red-500 text-white px-4 py-1 rounded-r"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center text-sm py-4 border-t mt-6">
+        © 2025 Sepatu Cibaduyut. All Rights Reserved
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/products.js"></script>
+    <script src="./javascript/sidebar.js"></script>
+    <script src="./javascript/cart.js"></script>
+    <!-- Toggle Script -->
+    <script>
+      function toggleDropdown() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Optional: auto-close when clicking outside
+      document.addEventListener("click", function (event) {
+        const dropdown = document.getElementById("dropdownMenu");
+        const button = document.getElementById("dropdownBtn");
+        if (
+          !button.contains(event.target) &&
+          !dropdown.contains(event.target)
+        ) {
+          dropdown.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
