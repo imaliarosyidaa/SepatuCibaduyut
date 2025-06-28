@@ -19,11 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
       card.innerHTML = `
         <div class="relative group text-xs sm:text-sm">
         <!-- Gambar Produk -->
+        <a href="./product_detail.html?id=${product.id}">
         <img
           src="${product.img}"
           alt="${product.name}"
           class="w-full h-40 sm:h-52 object-cover group-hover:scale-105 transition duration-300 rounded-md" />
-
+        </a>
         <!-- Tombol Favorite & Remove -->
         <div
           class="absolute top-2 right-2 flex gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition duration-300">
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="p-1 bg-white rounded-full shadow favorite-btn"
             data-name="${product.name}"
             data-price="${product.price}"
-            data-img="${product.image}">
+            data-img="${product.img}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
               class="w-5 h-5 sm:w-6 sm:h-6">
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="remove-btn p-1 bg-white rounded-full shadow"
             data-name="${product.name}"
             data-price="${product.price}"
-            data-img="${product.image}">
+            data-img="${product.img}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
               class="w-5 h-5 sm:w-6 sm:h-6">
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flex flex-col sm:flex-row gap-2 w-full">
           <!-- Checkout -->
           <button
-            class="bg-gray-600 text-white w-full sm:w-3/4 px-4 py-2 sm:py-2.5 text-xs sm:text-sm rounded hover:bg-gray-700 flex justify-center sm:justify-around items-center gap-2">
+            class="checkoutBtn bg-gray-600 text-white w-full sm:w-3/4 px-4 py-2 sm:py-2.5 text-xs sm:text-sm rounded hover:bg-gray-700 flex justify-center sm:justify-around items-center gap-2">
             <span>Check Out</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -77,10 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <!-- Add to Cart -->
           <button
-            class="bg-gray-900 text-white w-full sm:w-1/4 flex justify-center py-2 sm:py-2.5 text-xs sm:text-sm rounded hover:bg-gray-800"
+            class="add-to-cart bg-gray-900 text-white w-full sm:w-1/4 flex justify-center py-2 sm:py-2.5 text-xs sm:text-sm rounded hover:bg-gray-800"
             data-name="${product.name}"
             data-price="${product.price}"
-            data-img="${product.image}">
+            data-img="${product.img}">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
               viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -95,9 +96,22 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       `;
 
+    const checkoutBtn = card.querySelector('.checkoutBtn');
+    checkoutBtn.addEventListener('click', () => {
+      const productData = {
+        name: product.name,
+        price: product.price,
+        image: product.img
+      };
+      localStorage.setItem('checkoutItem', JSON.stringify(productData));
+      localStorage.setItem('checkoutFrom', 'productData');
+      window.location.href = 'checkout.html';
+    });
+
       container.appendChild(card);
     });
 
+    // Hapus dari favorites
     document.querySelectorAll(".remove-btn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const index = e.target.dataset.index;

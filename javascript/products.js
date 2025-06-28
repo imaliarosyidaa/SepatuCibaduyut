@@ -66,6 +66,7 @@ function renderProducts(filtered) {
         class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">
         <button
           class="p-1 bg-white rounded-full shadow favorite-btn"
+          data-id="${p.id}"
           data-name="${p.name}"
           data-price="${p.price}"
           data-img="${p.image}">
