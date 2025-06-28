@@ -57,9 +57,10 @@ function renderProducts(filtered) {
     card.innerHTML = `
       <div class="relative group text-xs sm:text-sm">
       <!-- Gambar produk -->
+      <a href="./product_detail.html?id=${p.id}">
       <img src="${p.image}" alt="${p.name}"
         class="w-full h-40 sm:h-52 object-cover group-hover:scale-105 transition duration-300 rounded-md" />
-
+      </a>
       <!-- Tombol favorite -->
       <div
         class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition">

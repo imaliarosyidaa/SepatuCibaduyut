@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sepatu Cibaduyut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./images/favicon_io/site.webmanifest" />
+  </head>
+
+  <body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="border-b shadow-sm">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="./">
+          <img
+            src="images/logo/logo-sepatu-cibaduyut.png"
+            alt="logo sepatu cibaduyut"
+            srcset=""
+            class="w-16"
+          />
+        </a>
+        <nav class="flex gap-4">
+          <a
+            id="openCartBtn2"
+            class="hover:text-red-500 cursor-pointer flex md:hidden"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+            >
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              /></svg></a>
+          
+          <!--Hamburger-->
+          <button
+            id="menuBtn"
+            class="flex md:hidden openSidebarBtn hamburger-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="black"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu-icon lucide-menu"
+            >
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
+              <path d="M4 6h16" />
+            </svg>
+          </button>
+          <div class="hidden md:flex gap-4 text-sm items-center">
+            <a href="./products.html" class="hover:text-red-500">Shoes</a>
+            <a href="./favorite.html" class="hover:text-red-500">Favorites</a>
+            <a href="./contact.html" class="hover:text-red-500">Contact</a>
+            <a id="openCartBtn" class="hover:text-red-500 cursor-pointer"
+              >My Cart</a>
+            <a
+              href="https://wa.me/6282334907089"
+              target="_blank"
+              class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 flex gap-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+                />
+              </svg>
+              Contact Me
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar Nav -->
+    <div
+      id="navSidebar"
+      class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg"
+    >
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-gray-500"
+      >
+        <h2 class="text-xl text-[#000] font-bold tracking-wide">Menu</h2>
+        <button
+          id="closeNav"
+          class="text-2xl text-[#000] leading-none focus:outline-none"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="px-6 py-4 space-y-4">
+        <a
+          href="./products.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Shoes</a>
+        <hr class="border-gray-500" />
+        <a
+          href="./favorite.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Favorites</a>
+        <hr class="border-gray-500" />
+        <a
+          href="./contact.html"
+          class="block py-2 text-[#000] hover:text-red-500 hover:underline"
+          >Contact</a>
+        <hr class="border-gray-500" />
+        <a
+          href="https://wa.me/6282334907089"
+          target="_blank"
+          class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 flex gap-1 max-w-fit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+            />
+          </svg>
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <!--Sidebar Cart-->
+    <section>
+      <div
+        id="cartSidebar"
+        class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <!-- Header -->
+        <div class="flex justify-between items-center p-4 border-b">
+          <h3 class="text-lg font-semibold text-gray-800">Shopping Cart</h3>
+          <button class="close-cart text-2xl text-gray-500 hover:text-red-500">
+            &times;
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div
+          id="cartItems"
+          class="p-4 space-y-4 overflow-y-auto h-[calc(100%-160px)]"
+        >
+          <!-- Cart items will be rendered here -->
+        </div>
+
+        <!-- Footer -->
+        <div class="p-4 border-t">
+          <button
+            id="checkoutBtn"
+            class="w-full bg-gray-900 text-white py-2 rounded hover:bg-gray-800 transition font-semibold"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <div class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10"> 
+      <!-- Gambar Utama & Thumbnail -->
+      <div class="space-y-6">
+        <div class="bg-gray-100 rounded-lg overflow-hidden">
+          <img id="mainImage" src="" alt="Product Image" class="w-full object-cover" />
+        </div>
+        <div id="thumbnails" class="flex items-center gap-4"></div>
+      </div>
+
+      <!-- Detail Produk -->
+      <div class="space-y-6">
+        <div>
+          <h1 id="productName" class="text-2xl font-bold"></h1>
+          <p id="productDesigner" class="text-sm text-gray-500"></p>
+        </div>
+
+        <div class="text-lg font-semibold text-gray-800" id="productPrice"></div>
+
+        <button class="add-to-cart bg-gray-900 text-white px-6 py-3 rounded hover:bg-gray-800 transition">ADD TO CART</button>
+      </div>
+    </div>
+
+    <script>
+  const products = [
+    {
+      id: 1,
+      name: "Black Formal",
+      designer: "Limited edition release, 2021",
+      price: 270000,
+      images: [
+        "./images/products/Black Formal.jpg",
+        "./images/products/Black Formal-1.jpg",
+        "./images/products/Black Formal-2.jpg",
+        "./images/products/Black Formal-3.jpg",
+        "./images/products/Black Formal-4.jpg",
+        "./images/products/Black Formal-5.jpg"
+      ],
+      colors: ["bg-gray-800", "bg-yellow-600", "bg-red-700", "bg-gray-200", "bg-blue-800"]
+    },
+    {
+      id: 2,
+      name: "Brown Shoes",
+      designer: "Limited edition release, 2023",
+      price: 290000,
+      images: [
+        "./images/products/brown shoes.jpg",
+        "./images/products/brown shoes-1.jpg",
+        "./images/products/brown shoes-2.jpg",
+        "./images/products/brown shoes-3.jpg",
+        "./images/products/brown shoes-4.jpg"
+      ],
+      colors: ["bg-green-700", "bg-pink-400", "bg-gray-300"]
+    },
+    {
+      id: 3,
+      name: "Diamond Brogue",
+      designer: "Limited edition release, 2023",
+      price: 400000,
+      images: [
+        "./images/products/Diamond Brogue.jpg",
+        "./images/products/Diamond Brogue-1.jpg",
+        "./images/products/Diamond Brogue-2.jpg",
+        "./images/products/Diamond Brogue-3.jpg",
+        "./images/products/Diamond Brogue-4.jpg",
+      ],
+      colors: ["bg-green-700", "bg-pink-400", "bg-gray-300"]
+    },
+    {
+      id: 4,
+      name: "Derby Brown",
+      designer: "Limited edition release, 2023",
+      price: 400000,
+      images: [
+        "./images/products/Derby Brown.jpg",
+        "./images/products/Derby Brown-1.jpg",
+        "./images/products/Derby Brown-2.jpg",
+      ],
+      colors: ["bg-green-700", "bg-pink-400", "bg-gray-300"]
+    },
+    {
+      id: 5,
+      name: "Premium Monk",
+      designer: "Limited edition release, 2023",
+      price: 320000,
+      images: [
+        "./images/products/Premium Monk.jpg",
+        "./images/products/Premium Monk-1.jpg",
+        "./images/products/Premium Monk-2.jpg",
+        "./images/products/Premium Monk-3.jpg",
+        "./images/products/Premium Monk-4.jpg",
+        "./images/products/Premium Monk-5.jpg",
+        "./images/products/Premium Monk-6.jpg",
+      ],
+      colors: ["bg-green-700", "bg-pink-400", "bg-gray-300"]
+    },
+  ];
+
+  // Ambil ID dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = parseInt(urlParams.get('id'));
+
+  const product = products.find(p => p.id === productId);
+
+  if (!product) {
+    document.body.innerHTML = '<div class="text-center mt-10 text-xl font-semibold text-red-600">Product not found</div>';
+  } else {
+    document.getElementById("mainImage").src = product.images[0];
+    document.getElementById("mainImage").alt = product.name;
+    document.getElementById("productName").textContent = product.name;
+    document.getElementById("productDesigner").textContent = product.designer;
+    document.getElementById("productPrice").textContent = `Rp${product.price}`;
+
+    // Thumbnail
+    const thumbnailsContainer = document.getElementById("thumbnails");
+    product.images.forEach((img, i) => {
+      const thumb = document.createElement("img");
+      thumb.src = img;
+      thumb.alt = `Thumbnail ${i + 1}`;
+      thumb.className = "w-16 h-16 object-cover rounded cursor-pointer border border-gray-300";
+      thumb.addEventListener("click", () => {
+        document.getElementById("mainImage").src = img;
+      });
+      thumbnailsContainer.appendChild(thumb);
+    });
+
+    // Colors
+    const colorsContainer = document.getElementById("colors");
+    product.colors.forEach(color => {
+      const span = document.createElement("span");
+      span.className = `w-6 h-6 rounded-full ${color} border-2 border-transparent cursor-pointer`;
+      colorsContainer.appendChild(span);
+    });
+
+    // Quantity
+    const quantitySelect = document.getElementById("quantity");
+    for (let i = 1; i <= 4; i++) {
+      const opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = i;
+      quantitySelect.appendChild(opt);
+    }
+  }
+</script>
+<script src="./javascript/cart.js"></script>
+  </body>
+</html>

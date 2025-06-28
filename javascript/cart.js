@@ -21,23 +21,42 @@ closeCart.addEventListener("click", () => {
 
 // Add to Cart
 document.addEventListener("click", function (e) {
+  const cartSidebar = document.getElementById("cartSidebar");
   const btn = e.target.closest(".add-to-cart");
   if (!btn) return;
 
-  const name = btn.dataset.name;
-  const price = btn.dataset.price;
-  const img = btn.dataset.img;
+  let name, price, img;
+
+  // Jika tombol punya dataset, ambil dari sana
+  if (btn.dataset.name && btn.dataset.price && btn.dataset.img) {
+    name = btn.dataset.name;
+    price = btn.dataset.price;
+    img = btn.dataset.img;
+  }
+  // Jika tidak, fallback ke variabel global `product`
+  else if (typeof product !== "undefined") {
+    name = product.name;
+    price = product.price;
+    img = product.images?.[0] || ""; // default ke kosong kalau tidak ada gambar
+  } else {
+    console.warn("Gagal menambahkan produk ke keranjang: data tidak ditemukan.");
+    return;
+  }
 
   const newItem = { name, price, img };
 
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
   cartItems.push(newItem);
   localStorage.setItem("cart", JSON.stringify(cartItems));
 
-  renderCart();
-  cartSidebar.classList.remove("translate-x-full");
-  cartSidebar.classList.add("translate-x-0");
+  if (typeof renderCart === "function") {
+    renderCart(); // hanya panggil jika fungsi tersedia
+  }
+
+  if (cartSidebar) {
+    cartSidebar.classList.remove("translate-x-full");
+    cartSidebar.classList.add("translate-x-0");
+  }
 });
 
 function renderCart() {

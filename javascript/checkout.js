@@ -5,7 +5,7 @@ const singleProduct = JSON.parse(localStorage.getItem('checkoutItem'));
 const cart = JSON.parse(localStorage.getItem('checkoutCart'));
 
 function parsePrice(priceStr) {
-  return parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
+  return parseFloat(String(priceStr).replace(/[^\d]/g, ""));
 }
 
 // Format harga
