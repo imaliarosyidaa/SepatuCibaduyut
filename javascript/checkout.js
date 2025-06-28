@@ -1,37 +1,65 @@
+const orderSummary = document.getElementById('orderSummary');
+const from = localStorage.getItem('checkoutFrom');
+
+const singleProduct = JSON.parse(localStorage.getItem('checkoutItem'));
+const cart = JSON.parse(localStorage.getItem('checkoutCart'));
+
 function parsePrice(priceStr) {
   return parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const orderSummary = document.getElementById('orderSummary');
-  const product = JSON.parse(localStorage.getItem('checkoutItem'));
+// Format harga
+function formatRupiah(value) {
+  return 'Rp' + value.toLocaleString('id-ID');
+}
 
-  if (!product) {
-    orderSummary.innerHTML = '<p>Your cart is empty.</p>';
-    return;
-  }
-
-  const quantity = 1;
-  const subtotal = parsePrice(product.price) * quantity;
-
-  const item = document.createElement('div');
-  item.className = 'order-item flex justify-between items-center border-b pb-2';
-  item.innerHTML = `
+if (from === 'productData' && singleProduct) {
+  let quantity = 1;
+  const subtotal = parsePrice(singleProduct.price) * quantity;
+  orderSummary.innerHTML = `
+    <div class= "flex justify-between">
     <div class="flex gap-2 items-center">
-      <img src="${product.image}" alt="${product.name}" class="w-12 h-12 object-cover rounded">
+      <img src="${singleProduct.image}" alt="${singleProduct.name}" class="w-12 h-12 object-cover rounded">
       <div>
-        <p class="font-medium">${product.name}</p>
-        <p class="text-xs text-gray-500">Rp ${parsePrice(product.price).toLocaleString('id-ID')} × ${quantity}</p>
+        <p class="font-medium">${singleProduct.name}</p>
+        <p class="text-xs text-gray-500">Rp ${parsePrice(singleProduct.price).toLocaleString('id-ID')} × ${quantity}</p>
       </div>
     </div>
     <div class="font-semibold text-sm">
       Rp ${subtotal.toLocaleString('id-ID')}
     </div>
+    </div>
+    <p><strong>Total: ${formatRupiah(subtotal)}</strong></p>
   `;
-  orderSummary.appendChild(item);
+  localStorage.removeItem('checkoutItem');
+  localStorage.removeItem('checkoutFrom');
+} else if (from === 'cart' && cart && cart.length > 0) {
+  let quantity = 1;
+  let html = '';
+  let total = 0;
+  cart.forEach(item => {
+    const subtotal = parsePrice(item.price) * quantity;
+    total += subtotal;
 
-  const totalEl = document.createElement('div');
-  totalEl.className = 'pt-3 font-bold text-right text-gray-800';
-  totalEl.innerText = `Total: Rp ${subtotal.toLocaleString('id-ID')}`;
-  orderSummary.appendChild(totalEl);
-});
+    html += `
+    <div class= "flex justify-between">
+    <div class="flex gap-2 items-center">
+      <img src="${item.img}" alt="${item.name}" class="w-12 h-12 object-cover rounded">
+      <div>
+        <p class="font-medium">${item.name}</p>
+        <p class="text-xs text-gray-500">Rp ${parsePrice(item.price).toLocaleString('id-ID')} × ${quantity}</p>
+      </div>
+    </div>
+    <div class="font-semibold text-sm">
+      Rp ${subtotal.toLocaleString('id-ID')}
+    </div>
+    </div>
+  `;
+  });
+  html += `<hr><p><strong>Total: ${formatRupiah(total)}</strong></p>`;
+  orderSummary.innerHTML = html;
+  localStorage.removeItem('checkoutCart');
+  localStorage.removeItem('checkoutFrom');
+} else {
+  orderSummary.innerHTML = '<p>Checkout tidak valid atau data kosong.</p>';
+}

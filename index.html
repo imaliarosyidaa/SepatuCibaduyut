@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sepatu Cibaduyut</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon_io/favicon-16x16.png"
+    />
     <link rel="manifest" href="./images/favicon_io/site.webmanifest" />
   </head>
 
@@ -25,7 +39,28 @@
             class="w-16"
           />
         </a>
-        <nav class="md:flex gap-4">
+        <nav class="flex gap-4">
+          <a
+            id="openCartBtn2"
+            class="hover:text-red-500 cursor-pointer flex md:hidden"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+            >
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              /></svg></a>
+          
           <!--Hamburger-->
           <button
             id="menuBtn"
@@ -53,8 +88,7 @@
             <a href="./favorite.html" class="hover:text-red-500">Favorites</a>
             <a href="./contact.html" class="hover:text-red-500">Contact</a>
             <a id="openCartBtn" class="hover:text-red-500 cursor-pointer"
-              >My Cart</a
-            >
+              >My Cart</a>
             <a
               href="https://wa.me/6282334907089"
               target="_blank"
@@ -101,21 +135,38 @@
         <a
           href="./products.html"
           class="block py-2 text-[#000] hover:text-red-500 hover:underline"
-          >Shoes</a
-        >
+          >Shoes</a>
         <hr class="border-gray-500" />
         <a
           href="./favorite.html"
           class="block py-2 text-[#000] hover:text-red-500 hover:underline"
-          >Favorites</a
-        >
+          >Favorites</a>
         <hr class="border-gray-500" />
         <a
           href="./contact.html"
           class="block py-2 text-[#000] hover:text-red-500 hover:underline"
-          >Contact</a
-        >
+          >Contact</a>
         <hr class="border-gray-500" />
+        <a
+          href="https://wa.me/6282334907089"
+          target="_blank"
+          class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 flex gap-1 max-w-fit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+            />
+          </svg>
+          Contact Me
+        </a>
       </div>
     </div>
 
@@ -264,11 +315,11 @@
               Desain kekinian, kenyamanan maksimal. Saatnya upgrade sepatu lokal
               berkualitas.
             </p>
-            <button
-              class="bg-[#997749] text-white px-6 py-2 rounded hover:bg-[#a88452]"
+            <a href="./products.html"
+              class="bg-[#997749] text-white px-6 py-2 rounded hover:bg-[#a88452] cursor-pointer"
             >
               Order Now
-            </button>
+            </a>
           </div>
         </div>
         <div
@@ -592,11 +643,20 @@
           class="w-full flex justify-center md:justify-start text-center md:text-left"
         >
           <div>
-            <img
-              src="./images/logo/logo-sepatu-cibaduyut.png"
-              alt="Logo"
-              class="h-10 mb-4 mx-auto md:mx-0"
-            />
+            <div
+              class="flex gap-2 w-full justify-center justify-items-center md:justify-start"
+            >
+              <img
+                src="./images/logo/logo-sepatu-cibaduyut.png"
+                alt="Logo"
+                class="h-10 mb-4 md:mx-0"
+              />
+              <img
+                src="./images/logo/LOGO ITS DAY PNG.png"
+                alt="Logo"
+                class="h-10 mb-4 md:mx-0"
+              />
+            </div>
             <p class="text-sm">
               Jl. Cibaduyut<br />
               Kel.Kebon Lega Kec.Bojongloa Kidul, Kota Bandung Jawa Barat
